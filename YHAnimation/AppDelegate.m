@@ -7,6 +7,7 @@
 //
 
 #import "AppDelegate.h"
+#import "ViewController.h"
 
 @interface AppDelegate ()
 
@@ -16,7 +17,14 @@
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-    // Override point for customization after application launch.
+    self.window = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
+    ViewController *viewVC = [[ViewController alloc] init];
+    UITabBarController *tabbar = [[UITabBarController alloc] init];
+    [tabbar addChildViewController:viewVC];
+    
+    self.window.rootViewController = tabbar;
+    [self.window makeKeyAndVisible];
+    
     return YES;
 }
 
